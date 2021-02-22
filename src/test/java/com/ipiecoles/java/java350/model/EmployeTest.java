@@ -118,10 +118,21 @@ class EmployeTest {
     }
     
     @Test
-    void getPrimeAnnuelleNull() {
+    void getPrimeAnnuelleMatriculeNull() {
         //Given
-        Employe employe = new Employe("Doe", "John", null,
-        LocalDate.now().minusYears(0), 1500d, 1, 1.0);
+        Employe employe = new Employe("Doe", "John", null, LocalDate.now(), 1500d, 1, 1.0);
+
+        //When
+        Double prime = employe.getPrimeAnnuelle();
+
+        //Then
+        Assertions.assertThat(prime).isEqualTo(1000);
+    }
+
+    @Test
+    void getPrimeAnnuellePerfNull() {
+        //Given
+        Employe employe = new Employe("Doe", "John", "T12345", LocalDate.now(), 1500d, null, 1.0);
 
         //When
         Double prime = employe.getPrimeAnnuelle();

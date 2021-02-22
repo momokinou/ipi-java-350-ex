@@ -19,7 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class EmployeRepositoryIntegrationTest {
+class EmployeRepositoryIntegrationTest {
     @Autowired
     EmployeService employeService;
 

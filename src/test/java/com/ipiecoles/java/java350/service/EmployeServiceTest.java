@@ -42,7 +42,7 @@ public class EmployeServiceTest{
     @CsvSource({
         "C00001, 900, 1000, 4, 3",  "C00001, 1200, 1000, 2, 4", "C00001, 1201, 1000, 2, 7"
     })
-    public void testCalculPerformanceCommercial(String matricule, Long caTraite, Long objectifCa, Integer perfBase, Integer perfAttendu) throws EmployeException {
+    void testCalculPerformanceCommercial(String matricule, Long caTraite, Long objectifCa, Integer perfBase, Integer perfAttendu) throws EmployeException {
         //Given
         Employe employe = new Employe("Moriceau", "Quentin", matricule, LocalDate.now(), Entreprise.SALAIRE_BASE, perfBase, 1.0);
         Mockito.when(employeRepository.findByMatricule(matricule)).thenReturn(employe);
@@ -57,7 +57,7 @@ public class EmployeServiceTest{
     }
 
     @Test
-    public void testCalculPerformanceCommercialCaTraiteNull() throws EmployeException {
+    void testCalculPerformanceCommercialCaTraiteNull() throws EmployeException {
         //Given
         Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);

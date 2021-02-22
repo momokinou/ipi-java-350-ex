@@ -37,9 +37,12 @@ public class EmployeRepositoryIntegrationTest {
         "C", "T", "M"
     })
     void testAvgPerformanceWhereMatriculeStartsWith(String key) {
-        employeRepository.save(new Employe("Doe", "John", "C12389", LocalDate.now(), Entreprise.SALAIRE_BASE, 2, 1.0));
-        employeRepository.save(new Employe("Doe", "John", "T12895", LocalDate.now(), Entreprise.SALAIRE_BASE, 2, 1.0));
-        employeRepository.save(new Employe("Doe", "John", "M12257", LocalDate.now(), Entreprise.SALAIRE_BASE, 2, 1.0));
+        employeRepository.save(new Employe("Doe", "John", "C12390", LocalDate.now(), Entreprise.SALAIRE_BASE, 3, 1.0));
+        employeRepository.save(new Employe("Doe", "John", "C12389", LocalDate.now(), Entreprise.SALAIRE_BASE, 1, 1.0));
+        employeRepository.save(new Employe("Doe", "John", "T12895", LocalDate.now(), Entreprise.SALAIRE_BASE, 3, 1.0));
+        employeRepository.save(new Employe("Doe", "John", "T12896", LocalDate.now(), Entreprise.SALAIRE_BASE, 1, 1.0));
+        employeRepository.save(new Employe("Doe", "John", "M12257", LocalDate.now(), Entreprise.SALAIRE_BASE, 3, 1.0));
+        employeRepository.save(new Employe("Doe", "John", "M12258", LocalDate.now(), Entreprise.SALAIRE_BASE, 1, 1.0));
 
         Assertions.assertThat(employeRepository.avgPerformanceWhereMatriculeStartsWith(key)).isEqualTo(2);
     }

@@ -10,7 +10,7 @@ import com.ipiecoles.java.java350.model.Entreprise;
 import com.ipiecoles.java.java350.repository.EmployeRepository;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,7 +43,7 @@ public class EmployeServiceTest{
     @Test
     void testCalculPerformanceCommercialCaTraiteNull() throws EmployeException {
         //Given
-        Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
+        //Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
 
         //When
@@ -62,7 +62,7 @@ public class EmployeServiceTest{
     @Test
     void testCalculPerformanceCommercialObjectifCaNull() throws EmployeException {
         //Given
-        Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
+        //Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
 
         //When
@@ -80,7 +80,7 @@ public class EmployeServiceTest{
    @Test
     void testCalculPerformanceCommercialMauvaisMatricule() throws EmployeException {
         //Given
-        Employe employe = new Employe("Moriceau", "Quentin", "T00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
+        //Employe employe = new Employe("Moriceau", "Quentin", "T00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("T00001")).thenReturn(employe);
 
         //When
@@ -98,7 +98,7 @@ public class EmployeServiceTest{
     @Test
     void testCalculPerformanceCommercialMatriculNull() throws EmployeException {
         //Given
-        Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
+        //Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
 
         //When
@@ -116,7 +116,7 @@ public class EmployeServiceTest{
     @Test
     void testCalculPerformanceCommercialMatriculNonExistant() throws EmployeException {
         //Given
-        Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
+        //Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
 
         //When
@@ -130,7 +130,7 @@ public class EmployeServiceTest{
             Assertions.assertThat(e.getMessage()).isEqualTo("Le matricule C00002 n'existe pas !");
         }
     }
-    
+
     @ParameterizedTest
     @CsvSource({
         "C00001, 900, 1000, 4, 3",  "C00001, 1200, 1000, 2, 4", "C00001, 1201, 1000, 2, 7"

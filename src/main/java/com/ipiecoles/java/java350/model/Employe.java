@@ -1,4 +1,4 @@
-package com.ipiecoles.java.java350;
+package com.ipiecoles.java.java350.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -138,7 +138,14 @@ public class Employe {
     }
 
     //Augmenter salaire
-    //public void augmenterSalaire(double pourcentage){}
+    public void augmenterSalaire(double pourcentage){
+        //Si le pourcentage renseigné n'est pas exprimé en nombre à virgule (du type: 0.1 pour 10%) mais en nombre entier (du type: 10 pour 10%)
+        //Alors, nous passons les pourcentages en nombre à virgule, 10 devient 0.1, 25 devient 0.25, etc...
+        if (pourcentage >= 1) {
+            pourcentage = pourcentage / 100;
+        }
+        this.salaire += this.salaire * pourcentage;
+    }
 
     public Long getId() {
         return id;

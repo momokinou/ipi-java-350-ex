@@ -51,7 +51,20 @@ class EmployeTest {
         Integer anneeAnciennete = e.getNombreAnneeAnciennete();
 
         //Then
-        Assertions.assertThat(anneeAnciennete.intValue()).isEqualTo(0);
+        Assertions.assertThat(anneeAnciennete.intValue()).isZero();
+    }
+
+    @Test
+    void getNombreAnneeAncienneteNull(){
+        //Given
+        Employe e = new Employe();
+        e.setDateEmbauche(null);
+
+        //When
+        Integer anneeAnciennete = e.getNombreAnneeAnciennete();
+
+        //Then
+        Assertions.assertThat(anneeAnciennete).isNull();
     }
 
     @ParameterizedTest

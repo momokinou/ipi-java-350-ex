@@ -90,7 +90,7 @@ class EmployeTest {
         Integer anneeAnciennete = e.getNombreAnneeAnciennete();
 
         //Then
-        Assertions.assertThat(anneeAnciennete.intValue()).isEqualTo(2);
+        Assertions.assertThat(anneeAnciennete).isNull();
     }
 
     @ParameterizedTest

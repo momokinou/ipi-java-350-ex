@@ -81,7 +81,7 @@ class EmployeTest {
     }
 
     @Test
-    public void getNombreAnneeAncienneteP2(){
+    void getNombreAnneeAncienneteP2(){
         //Given
         Employe e = new Employe();
         e.setDateEmbauche(LocalDate.now().plusYears(2L));

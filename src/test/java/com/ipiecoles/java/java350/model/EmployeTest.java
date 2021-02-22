@@ -67,6 +67,32 @@ class EmployeTest {
         Assertions.assertThat(anneeAnciennete).isNull();
     }
 
+    @Test
+    void getNombreAnneeAncienneteM2(){
+        //Given
+        Employe e = new Employe();
+        e.setDateEmbauche(LocalDate.now().minusYears(2L));
+
+        //When
+        Integer anneeAnciennete = e.getNombreAnneeAnciennete();
+
+        //Then
+        Assertions.assertThat(anneeAnciennete.intValue()).isEqualTo(2);
+    }
+
+    @Test
+    public void getNombreAnneeAncienneteP2(){
+        //Given
+        Employe e = new Employe();
+        e.setDateEmbauche(LocalDate.now().plusYears(2L));
+
+        //When
+        Integer anneeAnciennete = e.getNombreAnneeAnciennete();
+
+        //Then
+        Assertions.assertThat(anneeAnciennete.intValue()).isEqualTo(2);
+    }
+
     @ParameterizedTest
     @CsvSource({
             "1, 'T12345', 0, 1.0, 1000.0",

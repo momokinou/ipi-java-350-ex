@@ -92,6 +92,8 @@ public class Employe {
             case SATURDAY:
                 nbSamediDimanche = nbSamediDimanche + 1;
                 break;
+            default:
+                //Fixing the code with a needed default option.
         }
         // Calcul nombre de jour férié ne tombant pas le week end :
         int nbJourFeriesSemaine = (int) Entreprise.joursFeries(dateReference).stream().filter(localDate -> localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();

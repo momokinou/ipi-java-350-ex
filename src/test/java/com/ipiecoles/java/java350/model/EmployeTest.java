@@ -116,4 +116,17 @@ class EmployeTest {
         Assertions.assertThat(prime).isEqualTo(primeAnnuelle);
 
     }
+    
+    @Test
+    void getPrimeAnnuelleNull() {
+        //Given
+        Employe employe = new Employe("Doe", "John", null,
+        LocalDate.now().minusYears(0), 1500d, 1, 1.0);
+
+        //When
+        Double prime = employe.getPrimeAnnuelle();
+
+        //Then
+        Assertions.assertThat(prime).isEqualTo(1000);
+    }
 }

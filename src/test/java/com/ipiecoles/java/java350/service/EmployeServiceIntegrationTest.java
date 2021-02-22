@@ -34,7 +34,7 @@ public class EmployeServiceIntegrationTest {
     }
 
     @Test
-    public void testIntegrationCalculPerformanceCommercial() throws EmployeException {
+    void testIntegrationCalculPerformanceCommercial() throws EmployeException {
         // Given
         String nom = "Doe";
         String prenom = "John";

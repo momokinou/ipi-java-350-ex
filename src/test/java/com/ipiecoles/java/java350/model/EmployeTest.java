@@ -13,7 +13,7 @@ public class EmployeTest {
     @CsvSource({
         "1000, 8, 1080", "2500, 100, 5000", "2000, 0.10, 2200", "1500, 0.01, 1515", "1000, 0, 1000"
     })
-    public void testAugmenterSalaire(Double salaireBase, Double pourcentage,Double salaireAugmente){
+    void testAugmenterSalaire(Double salaireBase, Double pourcentage,Double salaireAugmente){
         //Given
         Employe employe = new Employe();
         employe.setSalaire(salaireBase);
@@ -27,9 +27,9 @@ public class EmployeTest {
 
     @ParameterizedTest
     @CsvSource({
-        "2019, 8", "2021, 10", "2022, 10", "2032, 11"
+        "2019, 8", "2021, 10", "2022, 10", "2032, 11", "2026, 9", "2016, 9"
     })
-    public void testGetNbRtt(Integer year, Integer ret) {
+    void testGetNbRtt(Integer year, Integer ret) {
         //Given
         Employe employe = new Employe();
 

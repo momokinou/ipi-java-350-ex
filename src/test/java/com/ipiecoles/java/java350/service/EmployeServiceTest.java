@@ -38,23 +38,7 @@ public class EmployeServiceTest{
         MockitoAnnotations.initMocks(this.getClass());
     }
 
-    @ParameterizedTest
-    @CsvSource({
-        "C00001, 900, 1000, 4, 3",  "C00001, 1200, 1000, 2, 4", "C00001, 1201, 1000, 2, 7"
-    })
-    void testCalculPerformanceCommercial(String matricule, Long caTraite, Long objectifCa, Integer perfBase, Integer perfAttendu) throws EmployeException {
-        //Given
-        Employe employe = new Employe("Moriceau", "Quentin", matricule, LocalDate.now(), Entreprise.SALAIRE_BASE, perfBase, 1.0);
-        Mockito.when(employeRepository.findByMatricule(matricule)).thenReturn(employe);
 
-        //When
-        employeService.calculPerformanceCommercial(matricule, caTraite, objectifCa);
-        ArgumentCaptor<Employe> employeArgumentCaptor = ArgumentCaptor.forClass(Employe.class);
-        Mockito.verify(employeRepository, times(1)).save(employeArgumentCaptor.capture());
-
-        //Then
-        Assertions.assertThat(employeArgumentCaptor.getValue().getPerformance()).isEqualTo(perfAttendu);
-    }
 
     @Test
     void testCalculPerformanceCommercialCaTraiteNull() throws EmployeException {
@@ -76,7 +60,7 @@ public class EmployeServiceTest{
     }
 
     @Test
-    public void testCalculPerformanceCommercialObjectifCaNull() throws EmployeException {
+    void testCalculPerformanceCommercialObjectifCaNull() throws EmployeException {
         //Given
         Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
@@ -94,7 +78,7 @@ public class EmployeServiceTest{
     }
 
    @Test
-    public void testCalculPerformanceCommercialMauvaisMatricule() throws EmployeException {
+    void testCalculPerformanceCommercialMauvaisMatricule() throws EmployeException {
         //Given
         Employe employe = new Employe("Moriceau", "Quentin", "T00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("T00001")).thenReturn(employe);
@@ -112,7 +96,7 @@ public class EmployeServiceTest{
     }
 
     @Test
-    public void testCalculPerformanceCommercialMatriculNull() throws EmployeException {
+    void testCalculPerformanceCommercialMatriculNull() throws EmployeException {
         //Given
         Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
@@ -130,7 +114,7 @@ public class EmployeServiceTest{
     }
 
     @Test
-    public void testCalculPerformanceCommercialMatriculNonExistant() throws EmployeException {
+    void testCalculPerformanceCommercialMatriculNonExistant() throws EmployeException {
         //Given
         Employe employe = new Employe("Moriceau", "Quentin", "C00001", LocalDate.now(), Entreprise.SALAIRE_BASE, Entreprise.PERFORMANCE_BASE, 1.0);
         //Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(employe);
@@ -146,5 +130,22 @@ public class EmployeServiceTest{
             Assertions.assertThat(e.getMessage()).isEqualTo("Le matricule C00002 n'existe pas !");
         }
     }
+    
+    @ParameterizedTest
+    @CsvSource({
+        "C00001, 900, 1000, 4, 3",  "C00001, 1200, 1000, 2, 4", "C00001, 1201, 1000, 2, 7"
+    })
+    void testCalculPerformanceCommercial(String matricule, Long caTraite, Long objectifCa, Integer perfBase, Integer perfAttendu) throws EmployeException {
+        //Given
+        Employe employe = new Employe("Moriceau", "Quentin", matricule, LocalDate.now(), Entreprise.SALAIRE_BASE, perfBase, 1.0);
+        Mockito.when(employeRepository.findByMatricule(matricule)).thenReturn(employe);
 
+        //When
+        employeService.calculPerformanceCommercial(matricule, caTraite, objectifCa);
+        ArgumentCaptor<Employe> employeArgumentCaptor = ArgumentCaptor.forClass(Employe.class);
+        Mockito.verify(employeRepository, times(1)).save(employeArgumentCaptor.capture());
+
+        //Then
+        Assertions.assertThat(employeArgumentCaptor.getValue().getPerformance()).isEqualTo(perfAttendu);
+    }
 }

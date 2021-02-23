@@ -64,7 +64,7 @@ class EmployeTest {
         Integer anneeAnciennete = e.getNombreAnneeAnciennete();
 
         //Then
-        Assertions.assertThat(anneeAnciennete).isEqualTo(0);
+        Assertions.assertThat(anneeAnciennete).isZero();
     }
 
     @Test
@@ -90,7 +90,7 @@ class EmployeTest {
         Integer anneeAnciennete = e.getNombreAnneeAnciennete();
 
         //Then
-        Assertions.assertThat(anneeAnciennete).isEqualTo(0);
+        Assertions.assertThat(anneeAnciennete).isZero();
     }
 
     @ParameterizedTest

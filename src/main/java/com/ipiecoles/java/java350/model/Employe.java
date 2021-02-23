@@ -48,7 +48,7 @@ public class Employe {
      */
     public Integer getNombreAnneeAnciennete() {
         if(dateEmbauche == null || dateEmbauche.isAfter(LocalDate.now()))
-            return null;
+            return 0;
         return LocalDate.now().getYear() - dateEmbauche.getYear();
     }
 
@@ -93,6 +93,7 @@ public class Employe {
                 break;
             default:
                 //Fixing the code with a needed default option.
+                break;  
         }
         // Calcul nombre de jour férié ne tombant pas le week end :
         int nbJourFeriesSemaine = (int) Entreprise.joursFeries(dateReference).stream().filter(localDate -> localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();
